@@ -3,28 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patent: Data Driven Computing System Development</title>
-</head>
-<body>
-    <nav>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="documentation.html">Collaboration Entry</a> |
-    <a href="Patent.html">Patent</a> |
-    <a href="contact.html">Contact</a>
-</nav>
-     
-    <title>Patent Overview</title>
+    <title>Patent Files</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
             background-color: #f4f4f9;
             color: #333;
         }
@@ -58,107 +43,37 @@
         h1, h2 {
             color: #333;
         }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #333;
-            color: #fff;
-            margin-top: 2rem;
-        }
-        pre {
-            background: #f8f8f8;
-            padding: 1rem;
-            overflow-x: auto;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Patent Overview</h1>
+        <h1>Patent Files</h1>
     </header>
 
     <nav>
-        <a href="#brief-description">Brief Description</a>
-        <a href="#detailed-description">Detailed Description</a>
-        <a href="#safety">Safety</a>
+        <a href="#Specification">Specification</a>
         <a href="#claims">Claims</a>
-        <a href="#abstract">Abstract</a>
+        <a href="#Abstraction">Abstraction</a>
     </nav>
 
-    <section id="brief-description">
-        <h2>Brief Description</h2>
-        <pre>
-INVENTION TITLE
-[0001] Data driven computing system development
-
-[0002] The present application claims priority to the earlier filed provisional application having the U.S. Application Number: 63/318,765, Filing Date: Mar 10, 2022, Name of Inventor: Jin Ming Wen, Title of Invention: Data driven computing system development, and hereby incorporates subject matter of the provisional application in its entirety.
-
-COPYRIGHT NOTICE
-[0003] This application includes material that is subject to copyright protection. The copyright owner has no objection to the facsimile reproduction by anyone of the patent document or patent disclosure, as it appears in the Patent and Trademark Office files or records, but otherwise reserves all copyright rights whatsoever.
-
-BACKGROUND OF THE INVENTION
-Field of the Invention
-[0004] The invention discloses a definite approach to construct computing system software based on the data: Input data, Middle data and Output data, and the calculations or relationships between them and provides the safety mechanism development approach to make sure that the software will work correctly by focusing on only two unique systematic attributes: Data Value and Data Timing. In this way, the software constructions, the relevant software safety mechanisms developments and the measurement criteria for both software constructions and safety developments are defined once the data and the calculations between them are defined in the system. 
-
-BRIEF SUMMARY OF THE INVENTION
-The present invention provides a definite or fixed method for implementing a computing system software and safety mechanisms, and provides the clearly defined and specific unique criteria to measure both software constructions and the safety mechanisms for said software based on the data value and data timing attributes.
-        </pre>
+    <section id="Specification">
+        <h2>Specification</h2>
+        <iframe src="Specification.pdf"></iframe>
     </section>
 
-    <section id="detailed-description">
-        <h2>Detailed Description</h2>
-        <pre>
-[00016] The invention discloses a specific and definite method to construct computing software based on said system requirements by focusing on only two attributes: Data Value and Data Timing, wherein said method consisting of: 
-- Defining and implementing a plurality of data based on said system’s requirements.
-- Executing calculations to derive both systematic attributes for each output data.
-- Developing safety mechanisms for each output data to prevent said software from outputting deviated data.
-
-[00025] The safety requirement analysis can be done based on the system operation concept. For example, if the Output Data 1 in the system operation concept above is a safety-relevant data that will be related to a safety device, then the operations defined by the formulas and all the operated data are safety-relevant.
-        </pre>
-    </section>
-
-    <section id="safety">
-        <h2>Safety</h2>
-        <pre>
-[00036] The disclosed embodiments describe the safety development in a computing system consisting of the reliability development, availability development, and quality control. 
-
-Reliability: Ensures the software acts as implemented, detecting and reacting to errors in data value and data timing. Covers input, middle, and output data error detection, including measures like timeout monitoring, result plausibility checks, and redundant calculations.
-
-Availability: Focuses on maintaining functionality through redundancy mechanisms (e.g., multiple object detection systems or braking subsystems).
-
-Quality Control: Prevents deviations between requirements and implementations via verification, testing, and management processes. Emphasizes compliance with industry standards like ASPICE, ISO 26262, and UN ECE 155/156.
-        </pre>
-    </section>
-
-    <section id="claims">
+    <section id="Claims">
         <h2>Claims</h2>
-        <pre>
-1. A method of constructing a computing system software on a computer system, wherein said method consists of:
-   - Defining and implementing a plurality of data (input, middle, and output data) with two attributes: data value and data timing.
-   - Developing safety mechanisms to detect and manage errors in data attributes (value and timing).
-
-2. The method of claim 1, wherein each input, middle, and output data has defined protocols and timing attributes calculated based on transmission durations, processing times, and system overheads.
-
-3. The method of claim 1, wherein safety mechanisms include error detection (value and timing), error reactions, and quality management.
-        </pre>
+        <iframe src="Claims.pdf"></iframe>
     </section>
 
-    <section id="abstract">
-        <h2>Abstract</h2>
-        <pre>
-The present invention is based on the data value and data timing attributes realizations and provides an explicitly defined definite or fixed method for constructing a computing system software consisting of:
-1. A definite system development method.
-2. A definite safety-relevant system development method.
-3. The specific and definite criteria to measure the software and the safety.
-        </pre>
+    <section id="Abstraction">
+        <h2>Abstraction</h2>
+        <iframe src="Abstraction.pdf"></iframe>
     </section>
-
-    <footer>
-        <p>&copy; 2024 DDSE Consulting, LLC. All Rights Reserved.</p>
-    </footer>
-        <!-- Back to Home Link -->
-    <p><a href="index.html">Back to Home</a></p>
 </body>
 </html>
