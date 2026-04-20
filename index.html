@@ -1,136 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DDSE Consulting | US Patent 12,197,893 B2 — Data-Driven Safety Licensing</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<style>
-:root {
-  --navy:#0B1E3D; --navy-light:#122952; --gold:#C9922A; --gold-light:#E8B860;
-  --gold-pale:#FDF3E0; --white:#FFFFFF; --off-white:#F7F8FA;
-  --text:#1A1A2E; --text-mid:#4A5568; --text-light:#718096;
-  --border:#E2E8F0; --border-gold:rgba(201,146,42,0.3); --success:#1A6B3C;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);line-height:1.7;font-size:16px;}
-h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;line-height:1.25;}
-a{color:var(--gold);text-decoration:none;}
-a:hover{text-decoration:underline;}
-nav{position:sticky;top:0;z-index:100;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:64px;border-bottom:1px solid rgba(255,255,255,0.08);}
-.nav-logo{color:var(--white);font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;letter-spacing:.02em;}
-.nav-logo span{color:var(--gold-light);}
-.nav-links{display:flex;gap:2rem;list-style:none;}
-.nav-links a{color:rgba(255,255,255,.78);font-size:.88rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;transition:color .2s;}
-.nav-links a:hover{color:var(--gold-light);}
-.nav-cta{background:var(--gold);color:var(--navy)!important;padding:.45rem 1.1rem;border-radius:4px;font-weight:600!important;transition:background .2s!important;}
-.nav-cta:hover{background:var(--gold-light)!important;text-decoration:none!important;}
-.hero-wrap{background:var(--navy);background-image:radial-gradient(ellipse 80% 60% at 70% 50%,rgba(201,146,42,.08) 0%,transparent 70%);}
-.hero{color:var(--white);padding:6rem 2.5rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;max-width:1200px;margin:0 auto;}
-.hero-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-bottom:1rem;}
-.hero h1{font-size:clamp(2rem,4vw,2.9rem);font-weight:700;color:var(--white);margin-bottom:1.25rem;}
-.hero h1 em{color:var(--gold-light);font-style:normal;}
-.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.72);max-width:480px;margin-bottom:2rem;line-height:1.8;}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
-.btn-primary{background:var(--gold);color:var(--navy);padding:.75rem 1.75rem;border-radius:4px;font-weight:600;font-size:.92rem;display:inline-block;transition:background .2s;}
-.btn-primary:hover{background:var(--gold-light);text-decoration:none;}
-.btn-outline{border:1.5px solid rgba(255,255,255,.35);color:var(--white);padding:.72rem 1.6rem;border-radius:4px;font-weight:500;font-size:.92rem;display:inline-block;transition:border-color .2s,color .2s;}
-.btn-outline:hover{border-color:var(--gold-light);color:var(--gold-light);text-decoration:none;}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
-.stat-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:1.25rem 1.5rem;}
-.stat-card .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold-light);}
-.stat-card .lbl{font-size:.82rem;color:rgba(255,255,255,.55);margin-top:.25rem;line-height:1.4;}
-.section{padding:5rem 2.5rem;}
-.section-inner{max-width:1100px;margin:0 auto;}
-.section-alt{background:var(--off-white);}
-.section-dark{background:var(--navy);color:var(--white);}
-.section-dark p,.section-dark li{color:rgba(255,255,255,.75);}
-.section-label{font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;}
-.section-dark .section-label{color:var(--gold-light);}
-.section-title{font-size:clamp(1.5rem,3vw,2.1rem);color:var(--navy);margin-bottom:1rem;}
-.section-dark .section-title{color:var(--white);}
-.section-intro{font-size:1.05rem;color:var(--text-mid);max-width:700px;line-height:1.85;}
-.core-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start;}
-.core-block{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:2rem;}
-.core-block-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:.5rem;}
-.core-block-sub{font-size:.88rem;color:var(--text-light);margin-bottom:1.5rem;}
-.data-type{display:flex;align-items:flex-start;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--border);}
-.data-type:last-child{border-bottom:none;padding-bottom:0;}
-.data-badge{background:var(--navy);color:var(--gold-light);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .6rem;border-radius:3px;white-space:nowrap;margin-top:.15rem;min-width:58px;text-align:center;}
-.data-badge.middle{background:var(--gold);color:var(--navy);}
-.data-badge.output{background:var(--navy-light);color:var(--white);}
-.data-type-body strong{display:block;font-size:.95rem;color:var(--text);margin-bottom:.2rem;}
-.data-type-body span{font-size:.85rem;color:var(--text-mid);}
-.attr-row{display:flex;gap:1rem;margin-top:.5rem;}
-.attr-item{flex:1;background:var(--navy);border-radius:8px;padding:1.25rem;}
-.attr-item h4{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;color:var(--gold-light);margin-bottom:.4rem;}
-.attr-item p{font-size:.83rem;color:rgba(255,255,255,.65);line-height:1.6;}
-.claim-box{background:var(--gold-pale);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin-top:1.5rem;font-size:.9rem;color:var(--text);font-style:italic;line-height:1.7;}
-.industries-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.25rem;margin-top:2.5rem;}
-.industry-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.5rem;transition:border-color .2s,box-shadow .2s;}
-.industry-card:hover{border-color:var(--gold);box-shadow:0 4px 16px rgba(201,146,42,.12);}
-.industry-icon{font-size:1.75rem;margin-bottom:.75rem;}
-.industry-card h4{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.4rem;}
-.industry-card p{font-size:.82rem;color:var(--text-mid);line-height:1.6;}
-.industry-card .std{font-size:.72rem;font-weight:600;color:var(--gold);margin-top:.6rem;letter-spacing:.04em;}
-.enf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:2.5rem 0;}
-.enf-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:1.75rem;text-align:center;}
-.enf-card .big{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--gold-light);}
-.enf-card .enf-label{font-size:.85rem;color:rgba(255,255,255,.6);margin-top:.35rem;line-height:1.5;}
-.enf-note{background:rgba(201,146,42,.1);border:1px solid rgba(201,146,42,.25);border-radius:8px;padding:1.25rem 1.5rem;font-size:.88rem;color:rgba(255,255,255,.75);line-height:1.7;}
-.sep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:2rem;}
-.sep-item{display:flex;align-items:flex-start;gap:.75rem;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;}
-.sep-check{color:var(--success);font-weight:700;font-size:1rem;margin-top:.1rem;flex-shrink:0;}
-.sep-item strong{display:block;font-size:.9rem;color:var(--navy);}
-.sep-item span{font-size:.8rem;color:var(--text-light);}
-.lic-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem;}
-.lic-card{border-radius:10px;padding:2rem;border:1px solid var(--border);}
-.lic-card.featured{background:var(--navy);border-color:var(--gold);}
-.lic-card.featured h3{color:var(--white);}
-.lic-card.featured p{color:rgba(255,255,255,.72);}
-.lic-card h3{font-size:1.15rem;color:var(--navy);margin-bottom:.5rem;}
-.lic-card .lic-badge{background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:700;letter-spacing:.06em;padding:.2rem .55rem;border-radius:3px;display:inline-block;margin-bottom:.75rem;}
-.lic-card p{font-size:.9rem;color:var(--text-mid);line-height:1.7;margin-bottom:1rem;}
-.lic-list{list-style:none;font-size:.88rem;}
-.lic-list li{padding:.35rem 0;display:flex;align-items:flex-start;gap:.6rem;}
-.lic-list li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;}
-.lic-card.featured .lic-list li::before{color:var(--gold-light);}
-.lic-card.featured .lic-list li{color:rgba(255,255,255,.75);}
-.faq-list{margin-top:2.5rem;}
-.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0;}
-.faq-q{font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;}
-.faq-a{font-size:.92rem;color:var(--text-mid);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .3s ease,margin .3s;}
-.faq-item.open .faq-a{max-height:400px;margin-top:.75rem;}
-.faq-toggle{color:var(--gold);font-size:1.2rem;flex-shrink:0;transition:transform .3s;}
-.faq-item.open .faq-toggle{transform:rotate(45deg);}
-.about-grid{display:grid;grid-template-columns:260px 1fr;gap:3rem;align-items:start;margin-top:2rem;}
-.about-card{background:var(--navy);border-radius:10px;padding:2rem;text-align:center;}
-.about-initials{width:72px;height:72px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy);}
-.about-card h3{font-family:'Playfair Display',serif;color:var(--white);font-size:1.1rem;margin-bottom:.25rem;}
-.about-card .role{font-size:.82rem;color:var(--gold-light);margin-bottom:1rem;}
-.about-card .about-detail{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.7;}
-.about-body h3{font-size:1.2rem;color:var(--navy);margin-bottom:.75rem;}
-.about-body p{font-size:.93rem;color:var(--text-mid);line-height:1.8;margin-bottom:1rem;}
-.contact-box{max-width:640px;margin:2.5rem auto 0;background:var(--white);border:1px solid var(--border-gold);border-radius:12px;padding:2.5rem;text-align:center;}
-.contact-box h3{font-size:1.4rem;color:var(--navy);margin-bottom:.75rem;}
-.contact-box p{font-size:.95rem;color:var(--text-mid);margin-bottom:1.5rem;}
-.contact-email-link{font-size:1rem;color:var(--gold);font-weight:600;display:inline-block;margin-bottom:1.5rem;}
-.contact-note{font-size:.8rem;color:var(--text-light);margin-top:.75rem;}
-footer{background:var(--navy);color:rgba(255,255,255,.5);text-align:center;font-size:.82rem;padding:2rem;border-top:1px solid rgba(255,255,255,.07);}
-footer strong{color:rgba(255,255,255,.75);}
-@media(max-width:768px){
-  nav{padding:0 1.25rem;}
-  .nav-links{display:none;}
-  .hero{grid-template-columns:1fr;padding:3.5rem 1.25rem 3rem;gap:2.5rem;}
-  .core-grid,.lic-grid,.about-grid{grid-template-columns:1fr;}
-  .enf-grid{grid-template-columns:1fr;}
-  .attr-row{flex-direction:column;}
-  .section{padding:3.5rem 1.25rem;}
-}
-</style>
-</head>
 <body>
 
 <!-- NAV -->
@@ -139,8 +6,8 @@ footer strong{color:rgba(255,255,255,.75);}
   <ul class="nav-links">
     <li><a href="#patent">The Patent</a></li>
     <li><a href="#industries">Industries</a></li>
-    <li><a href="#enforcement">Enforcement</a></li>
-    <li><a href="#sep">SEP Status</a></li>
+    <li><a href="#engagement">Engagement</a></li>
+    <li><a href="#sep">Standards</a></li>
     <li><a href="#licensing">Licensing</a></li>
     <li><a href="#contact" class="nav-cta">Inquire Now</a></li>
   </ul>
@@ -150,309 +17,183 @@ footer strong{color:rgba(255,255,255,.75);}
 <div class="hero-wrap">
 <div class="hero">
   <div>
-    <div class="hero-eyebrow">US Patent No. 12,197,893 B2 &nbsp;·&nbsp; Issued January 14, 2025</div>
-    <h1>The First-Principle Framework for <em>Safety-Critical Software</em></h1>
-    <p class="hero-sub">A USPTO-granted patent that defines the universal method for constructing computing system software based on the fundamental properties of data — applicable to every safety-critical industry that relies on ISO 26262, AUTOSAR, IEC 61508, and related standards.</p>
+    <div class="hero-eyebrow">US Patent No. 12,197,893 B2 · Issued January 14, 2025</div>
+    <h1>A Structured Framework for <em>Safety-Critical Software</em></h1>
+    <p class="hero-sub">
+      A patented method for systematically defining and verifying computing system software based on data value and timing — with direct relevance to ISO 26262, AUTOSAR, IEC 61508, and related safety-critical environments.
+    </p>
     <div class="hero-actions">
       <a href="#licensing" class="btn-primary">Explore Licensing</a>
       <a href="#patent" class="btn-outline">View the Patent</a>
     </div>
   </div>
+
   <div class="hero-stats">
     <div class="stat-card">
-      <div class="num">117</div>
-      <div class="lbl">Certified pre-suit notices delivered to industry implementers</div>
+      <div class="num">100+</div>
+      <div class="lbl">Industry participants contacted across automotive and industrial sectors</div>
     </div>
     <div class="stat-card">
-      <div class="num">22+</div>
-      <div class="lbl">Companies responded through outside counsel, including Honda, Aisin &amp; Ferrari</div>
+      <div class="num">Multiple</div>
+      <div class="lbl">Companies engaged through engineering teams and external counsel</div>
     </div>
     <div class="stat-card">
-      <div class="num">6</div>
-      <div class="lbl">Standard-essential declarations filed (IEC, ISO, AUTOSAR, NHTSA)</div>
+      <div class="num">3</div>
+      <div class="lbl">Standards analyses completed (ISO 26262, AUTOSAR CP/AP)</div>
     </div>
     <div class="stat-card">
-      <div class="num">50%</div>
-      <div class="lbl">Discount available to early voluntary licensees under FRAND terms</div>
+      <div class="num">FRAND</div>
+      <div class="lbl">Licensing program with early engagement considerations</div>
     </div>
   </div>
 </div>
 </div>
 
-<!-- PATENT CORE SECTION -->
+<!-- PATENT -->
 <section class="section" id="patent">
 <div class="section-inner">
   <div class="section-label">What the Patent Covers</div>
   <h2 class="section-title">Data Driven Computing System Development</h2>
-  <p class="section-intro">U.S. Patent 12,197,893 B2 claims a method of constructing computing system software based on a single, universal insight: all data in a computing system can be completely and exclusively described by <strong>three types</strong> and <strong>two systematic attributes</strong>. This minimal, precise framework is the foundation for every safety goal, safety criterion, and software construction activity in the patent.</p>
+  <p class="section-intro">
+    U.S. Patent 12,197,893 B2 describes a structured method for constructing computing system software based on a foundational concept: software behavior can be systematically defined through a limited set of data types and attributes.
+  </p>
 
   <div class="core-grid">
+
     <div class="core-block">
-      <div class="core-block-title">The Three Types of Data</div>
-      <div class="core-block-sub">Every data element in any computing system falls into exactly one of these three categories — no more, no less.</div>
+      <div class="core-block-title">Three Types of Data</div>
+      <div class="core-block-sub">The framework organizes system data into three primary categories.</div>
+
       <div class="data-type">
         <span class="data-badge">Input</span>
         <div class="data-type-body">
-          <strong>Input Data — Imported from outside</strong>
-          <span>Data received by the system from external sources: sensor readings, network signals, user commands, bus messages (CAN, LIN, Ethernet). Defined by the input transmission protocol.</span>
+          <strong>External Input Data</strong>
+          <span>Data received from sensors, communication interfaces, or user inputs.</span>
         </div>
       </div>
+
       <div class="data-type">
         <span class="data-badge middle">Middle</span>
         <div class="data-type-body">
-          <strong>Middle Data — Stored internally</strong>
-          <span>Configuration, calibration, and state data generated during calculations and stored in memory devices (NVM, RAM, Flash). Persists across operations and power cycles.</span>
+          <strong>Internal Data</strong>
+          <span>Stored and managed data including configuration, calibration, and intermediate computation results.</span>
         </div>
       </div>
+
       <div class="data-type">
         <span class="data-badge output">Output</span>
         <div class="data-type-body">
-          <strong>Output Data — Exported to outside</strong>
-          <span>Data derived from calculations and transmitted out of the system to actuators, displays, or communication networks via the output transmission protocol.</span>
+          <strong>External Output Data</strong>
+          <span>Data transmitted to actuators, displays, or external systems.</span>
         </div>
       </div>
-      <div class="claim-box">"Consisting only of three types of data: input, middle and output." — Claim 1[b][ii]</div>
     </div>
 
     <div class="core-block">
-      <div class="core-block-title">The Two Systematic Attributes</div>
-      <div class="core-block-sub">Each of the three data types is characterized by exactly two safety-relevant attributes — and only two.</div>
+      <div class="core-block-title">Two Systematic Attributes</div>
+      <div class="core-block-sub">Each data type is characterized by two key attributes.</div>
+
       <div class="attr-row">
         <div class="attr-item">
-          <h4>Data Value Attribute</h4>
-          <p>The <em>content</em> of the data — what it represents. For example: vehicle speed = 72 km/h, brake pressure = 3.7 bar, gear position = 3. Safety mechanisms must ensure this value is correct, within range, plausible, and uncorrupted.</p>
+          <h4>Data Value</h4>
+          <p>Represents the content or meaning of the data. Safety considerations include correctness, plausibility, and integrity.</p>
         </div>
         <div class="attr-item">
-          <h4>Data Timing Attribute</h4>
-          <p>The <em>temporal property</em> of the data — when it arrives or is processed. For example: deadline adherence, timestamp, worst-case delay, execution window. Safety mechanisms must ensure data is available on time and processed within defined constraints.</p>
+          <h4>Data Timing</h4>
+          <p>Represents when data is available or processed. Safety considerations include timing constraints and deadlines.</p>
         </div>
       </div>
-      <div class="claim-box">"Wherein each said data consists of only two systematic attributes consisting of data value attribute and data timing attribute." — Claim 1[b][i]</div>
-      <p style="font-size:.85rem;color:var(--text-mid);margin-top:1.25rem;line-height:1.7;">All safety requirements in ISO 26262, AUTOSAR, IEC 61508 and related standards — CRC checks, watchdogs, plausibility checks, deadline monitoring, E2E protection, ASIL decomposition — exist solely to preserve, validate, or recover one or both of these two attributes.</p>
+
+      <p style="font-size:.85rem;color:var(--text-mid);margin-top:1.25rem;">
+        This structure provides a consistent basis for analyzing software behavior in systems where correctness and timing are critical.
+      </p>
     </div>
+
   </div>
 </div>
 </section>
-
 
 <!-- INDUSTRIES -->
 <section class="section section-alt" id="industries">
 <div class="section-inner">
-  <div class="section-label">Who Is Affected</div>
-  <h2 class="section-title">Industries and Applications</h2>
-  <p class="section-intro">Any organization developing software for safety-critical computing systems that relies on these standards is implementing the patented method. The patent is standard-essential and industry-spanning.</p>
+  <div class="section-label">Industries</div>
+  <h2 class="section-title">Applications</h2>
+  <p class="section-intro">
+    The patented framework is relevant to organizations developing safety-critical or real-time computing systems across multiple industries.
+  </p>
+
   <div class="industries-grid">
-    <div class="industry-card">
-      <div class="industry-icon">🚗</div>
-      <h4>Automotive</h4>
-      <p>ECU software for braking, steering, powertrain, ADAS, and body electronics. Every AUTOSAR-compliant or ISO 26262-certified development implements this method.</p>
-      <div class="std">ISO 26262 · AUTOSAR CP/AP · AEB</div>
-    </div>
-    <div class="industry-card">
-      <div class="industry-icon">🏭</div>
-      <h4>Industrial Automation</h4>
-      <p>PLC and safety controller software for manufacturing, process control, and robotic systems where functional safety is mandatory.</p>
-      <div class="std">IEC 61508 · IEC 62061</div>
-    </div>
-    <div class="industry-card">
-      <div class="industry-icon">🚜</div>
-      <h4>Agricultural Machinery</h4>
-      <p>Safety-critical control systems for tractors, harvesters, and autonomous farm equipment requiring certified software architectures.</p>
-      <div class="std">ISO 25119 · IEC 61508</div>
-    </div>
-    <div class="industry-card">
-      <div class="industry-icon">✈️</div>
-      <h4>Aerospace & Defense</h4>
-      <p>Avionics software and embedded control systems implementing real-time safety architectures with formal data classification requirements.</p>
-      <div class="std">DO-178C · IEC 61508</div>
-    </div>
-    <div class="industry-card">
-      <div class="industry-icon">🏥</div>
-      <h4>Medical Devices</h4>
-      <p>Life-critical device software where data value integrity and timing reliability directly affect patient outcomes.</p>
-      <div class="std">IEC 62304 · FDA 21 CFR</div>
-    </div>
-    <div class="industry-card">
-      <div class="industry-icon">⚡</div>
-      <h4>Energy & Power</h4>
-      <p>Grid control, nuclear safety systems, and smart grid software where timing and value correctness of data are mandatory safety requirements.</p>
-      <div class="std">IEC 61508 · IEC 61511</div>
-    </div>
+    <div class="industry-card"><h4>Automotive</h4><p>ECU, ADAS, braking, steering systems.</p><div class="std">ISO 26262 · AUTOSAR</div></div>
+    <div class="industry-card"><h4>Industrial</h4><p>PLCs and safety controllers.</p><div class="std">IEC 61508 · IEC 62061</div></div>
+    <div class="industry-card"><h4>Aerospace</h4><p>Avionics and flight control software.</p><div class="std">DO-178C</div></div>
+    <div class="industry-card"><h4>Medical</h4><p>Life-critical device software.</p><div class="std">IEC 62304</div></div>
+    <div class="industry-card"><h4>Agriculture</h4><p>Autonomous machinery systems.</p><div class="std">ISO 25119</div></div>
+    <div class="industry-card"><h4>Energy</h4><p>Grid and infrastructure systems.</p><div class="std">IEC 61508</div></div>
   </div>
 </div>
 </section>
 
-<!-- ENFORCEMENT STATUS -->
-<section class="section section-dark" id="enforcement">
+<!-- ENGAGEMENT -->
+<section class="section section-dark" id="engagement">
 <div class="section-inner">
-  <div class="section-label">Active Enforcement</div>
-  <h2 class="section-title">Patent Enforcement Campaign</h2>
-  <p class="section-intro">DDSE Consulting has conducted a systematic, good-faith licensing campaign. Notices have been sent to the world's leading automotive and industrial technology companies.</p>
-  <div class="enf-grid">
-    <div class="enf-card">
-      <div class="big">117</div>
-      <div class="enf-label">Certified pre-suit notices delivered by USPS certified mail to industry implementers</div>
-    </div>
-    <div class="enf-card">
-      <div class="big">22+</div>
-      <div class="enf-label">Companies responded through outside counsel, including Honda (7+ letters), Aisin, Garrett, Daimler Truck, and Ferrari</div>
-    </div>
-    <div class="enf-card">
-      <div class="big">3</div>
-      <div class="enf-label">Litigation-ready claim charts completed: ISO 26262, AUTOSAR Classic Platform, AUTOSAR Adaptive Platform</div>
-    </div>
-  </div>
+  <div class="section-label">Industry Engagement</div>
+  <h2 class="section-title">Ongoing Discussions</h2>
+  <p class="section-intro">
+    DDSE Consulting has initiated engagement with a broad set of industry participants. Technical materials and analyses are available to support evaluation.
+  </p>
+
   <div class="enf-note">
-    <strong style="color:var(--gold-light);">Legal Notice:</strong> Under U.S. patent law, delivery of actual notice to a party — whether by certified mail, counsel response, or constructive notice via public SEP registration — establishes the basis for enhanced damages in the event of continued infringement. Companies that have received notice and continue implementing the patented method without a license may be subject to willful infringement claims.
+    Organizations that have received outreach may wish to evaluate their technical and legal positions and consider engaging in licensing discussions where appropriate.
   </div>
 </div>
 </section>
 
-<!-- SEP DECLARATIONS -->
+<!-- SEP -->
 <section class="section" id="sep">
 <div class="section-inner">
-  <div class="section-label">Standard-Essential Patent</div>
-  <h2 class="section-title">SEP Declarations &amp; FRAND Commitment</h2>
-  <p class="section-intro">This patent has been declared standard-essential and offered under FRAND (Fair, Reasonable, and Non-Discriminatory) terms in accordance with the ISO/IEC Patent Policy (2022 Guidelines, Clause 2). Formal declarations have been filed with each standards body.</p>
+  <div class="section-label">Standards Alignment</div>
+  <h2 class="section-title">FRAND Licensing Approach</h2>
+  <p class="section-intro">
+    The patent has been evaluated in relation to multiple industry standards and is offered under FRAND principles.
+  </p>
+
   <div class="sep-grid">
-    <div class="sep-item">
-      <span class="sep-check">✓</span>
-      <div>
-        <strong>IEC 61508</strong>
-        <span>Registered — IEC Patent Database (public record)</span>
-      </div>
-    </div>
-    <div class="sep-item">
-      <span class="sep-check">✓</span>
-      <div>
-        <strong>ISO 26262</strong>
-        <span>Registered — ISO Patent Database (public record)</span>
-      </div>
-    </div>
-    <div class="sep-item">
-      <span class="sep-check">✓</span>
-      <div>
-        <strong>IEC 62061</strong>
-        <span>Declaration submitted to IEC</span>
-      </div>
-    </div>
-    <div class="sep-item">
-      <span class="sep-check">✓</span>
-      <div>
-        <strong>ISO 25119</strong>
-        <span>Declaration submitted to ISO</span>
-      </div>
-    </div>
-    <div class="sep-item">
-      <span class="sep-check">✓</span>
-      <div>
-        <strong>AUTOSAR</strong>
-        <span>Declaration submitted to AUTOSAR Patent Disclosure</span>
-      </div>
-    </div>
-    <div class="sep-item">
-      <span class="sep-check">✓</span>
-      <div>
-        <strong>NHTSA AEB</strong>
-        <span>Declaration submitted to NHTSA &amp; VSSA stakeholders</span>
-      </div>
-    </div>
+    <div class="sep-item"><span class="sep-check">✓</span><div><strong>ISO 26262</strong><span>Automotive safety</span></div></div>
+    <div class="sep-item"><span class="sep-check">✓</span><div><strong>IEC 61508</strong><span>Functional safety</span></div></div>
+    <div class="sep-item"><span class="sep-check">✓</span><div><strong>AUTOSAR</strong><span>Automotive architecture</span></div></div>
+    <div class="sep-item"><span class="sep-check">✓</span><div><strong>ISO 25119</strong><span>Agricultural safety</span></div></div>
   </div>
-  <p style="margin-top:1.5rem;font-size:.88rem;color:var(--text-mid);max-width:780px;line-height:1.8;">The formal publication by IEC constitutes constructive notice of SEP status. Because ISO 26262, ISO 25119, IEC 62061, and other domain-specific safety standards are derived from IEC 61508, any implementer of those derivative standards is also expected to inquire into SEP declarations and comply with licensing obligations. Per legal precedent and industry practice, implementers cannot rely on willful blindness or omission.</p>
 </div>
 </section>
-
 
 <!-- LICENSING -->
 <section class="section section-alt" id="licensing">
 <div class="section-inner">
-  <div class="section-label">Licensing Options</div>
-  <h2 class="section-title">Obtain a License</h2>
-  <p class="section-intro">DDSE Consulting offers non-exclusive licenses on FRAND terms. Licensing is available to any company implementing the patented method — directly or through compliance with ISO 26262, AUTOSAR, IEC 61508, or related standards.</p>
+  <div class="section-label">Licensing</div>
+  <h2 class="section-title">Licensing Opportunities</h2>
+  <p class="section-intro">
+    Non-exclusive licenses are available to organizations that may benefit from or implement aspects of the patented framework.
+  </p>
+
   <div class="lic-grid">
     <div class="lic-card featured">
-      <span class="lic-badge">RECOMMENDED — LIMITED TIME</span>
-      <h3>Early Adopter License</h3>
-      <p>Voluntary licensees who proactively reach out before litigation are eligible for significant discounts of up to 50% off standard FRAND rates. This reflects the patent owner's preference for cooperative licensing over enforcement proceedings.</p>
+      <h3>Early Engagement</h3>
+      <p>Organizations initiating discussions proactively may receive preferred commercial considerations.</p>
       <ul class="lic-list">
-        <li>Up to 50% discount off standard FRAND terms</li>
-        <li>Non-exclusive, worldwide coverage</li>
-        <li>Covers all implementations under ISO 26262, AUTOSAR, IEC 61508 &amp; derivatives</li>
-        <li>NDA-protected negotiations</li>
-        <li>Simplified licensing process for rapid execution</li>
+        <li>Confidential NDA-based discussions</li>
+        <li>Streamlined evaluation</li>
+        <li>Early resolution pathway</li>
       </ul>
     </div>
+
     <div class="lic-card">
-      <span class="lic-badge" style="background:var(--off-white);color:var(--navy);">STANDARD</span>
-      <h3>Standard FRAND License</h3>
-      <p>Available to all implementers under Fair, Reasonable, and Non-Discriminatory terms consistent with industry practice and SEP licensing obligations under ISO/IEC Patent Policy.</p>
+      <h3>Standard License</h3>
+      <p>Available to all qualified parties under FRAND principles.</p>
       <ul class="lic-list">
-        <li>Non-exclusive, worldwide license</li>
-        <li>Covers all implementations of the patented method</li>
-        <li>Applies across all platforms: automotive, industrial, medical, aerospace</li>
-        <li>Royalty structure based on FRAND principles</li>
-        <li>Available to all parties regardless of jurisdiction</li>
+        <li>Non-exclusive worldwide rights</li>
+        <li>Applicable across product lines</li>
+        <li>Industry-consistent licensing terms</li>
       </ul>
-    </div>
-  </div>
-  <p style="margin-top:1.5rem;font-size:.85rem;color:var(--text-mid);text-align:center;">All licensing inquiries are treated with strict confidentiality under NDA. Reach out to begin a conversation — no commitment required.</p>
-</div>
-</section>
-
-<!-- FAQ -->
-<section class="section" id="faq">
-<div class="section-inner">
-  <div class="section-label">Frequently Asked Questions</div>
-  <h2 class="section-title">Licensing FAQ</h2>
-  <p class="section-intro">Common questions from companies evaluating their licensing obligations under U.S. Patent 12,197,893 B2.</p>
-  <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Does implementing AUTOSAR or ISO 26262 mean we practice this patent?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">Under Federal Circuit precedent (Fujitsu v. Netgear, 620 F.3d 1321), compliance with a technical standard can establish practice when the standard necessarily requires practicing each element of a patent claim. Both ISO 26262 and AUTOSAR mandate software construction methods that inherently implement the three data types and two systematic attributes claimed in the patent. If your system is certified or compliant with these standards, it is very likely practicing the patented method.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">The standards predate the patent. Does that invalidate it?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">No. Under KSR v. Teleflex (550 U.S. 398) and Diamond v. Diehr (450 U.S. 175), a patent is valid if it claims a specific, non-obvious improvement or implementation not taught by prior art. ISO 26262 and AUTOSAR define detailed requirements but do not teach or suggest the specific first-principle insight of the '893 patent: that ALL computing system data can be completely and exclusively classified into exactly three types, each characterized by exactly two systematic attributes. That unifying framework is the novel contribution.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">We received a pre-suit notice. What should we do?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">We recommend consulting with IP counsel and reaching out to DDSE Consulting promptly. Companies that respond in good faith and initiate licensing discussions are eligible for the Early Adopter discount of up to 50%. Continued implementation without a license after receipt of actual notice may expose your company to enhanced damages for willful infringement under 35 U.S.C. § 284.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What does "non-exclusive" license mean for our business?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">A non-exclusive license grants your organization the right to practice the patented method in your products without restriction on DDSE Consulting also licensing other parties. You are not acquiring exclusivity over the technology — you are obtaining legal authorization to use it. All licenses offered are non-exclusive and worldwide, covering your implementations under all applicable standards.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What industries and products are covered?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">The patent covers any computing system software construction method that classifies data into input, middle, and output types with data value and data timing attributes — regardless of industry. This includes but is not limited to: automotive ECUs, industrial PLCs, medical device software, aerospace avionics, agricultural control systems, and any safety-critical embedded system implementing IEC 61508, ISO 26262, AUTOSAR, ISO 25119, IEC 62061, or derived standards.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the FRAND commitment affect licensing terms?<span class="faq-toggle">+</span></div>
-      <div class="faq-a">DDSE Consulting's FRAND commitment means licensing terms are offered on a non-discriminatory basis — similarly situated licensees receive comparable terms. "Fair and reasonable" means royalty rates that reflect the patent's contribution to the standard, consistent with industry practice for standard-essential patents. The 50% early adopter discount does not violate FRAND obligations because it is available to all parties that proactively engage before enforcement proceedings.</div>
-    </div>
-  </div>
-</div>
-</section>
-
-
-<!-- ABOUT -->
-<section class="section section-alt" id="about">
-<div class="section-inner">
-  <div class="section-label">About</div>
-  <h2 class="section-title">The Inventor &amp; DDSE Consulting</h2>
-  <div class="about-grid">
-    <div class="about-card">
-      <div class="about-initials">JW</div>
-      <h3>Jin Ming Wen</h3>
-      <div class="role">Inventor &amp; Founder, DDSE Consulting LLC</div>
-      <div class="about-detail">Clarkston, Michigan, USA<br/>DDSE Consulting, LLC<br/>EIN: 87-4628093<br/>US Patent 12,197,893 B2</div>
-    </div>
-    <div class="about-body">
-      <h3>Background &amp; Expertise</h3>
-      <p>Jin Ming Wen is the sole inventor of U.S. Patent No. 12,197,893 B2 and the founder of DDSE Consulting, LLC, the patent owner. With deep expertise in automotive ECU software development, functional safety engineering, and embedded systems architecture, the invention emerged from firsthand experience with the practical challenges of constructing safety-critical software across multiple industries.</p>
-      <p>The '893 Patent represents a fundamental insight: that the complexity of safety-critical software development can be systematically addressed by reducing all data in a computing system to exactly three types — Input, Middle, and Output — each characterized by exactly two attributes — Data Value and Data Timing. This first-principle approach enables complete, consistent, accurate, and efficient software construction and safety analysis.</p>
-      <p>DDSE Consulting, LLC is the sole owner of the patent. DDSE Operation, LLC serves as the exclusive licensing agent, managing all licensing discussions and commercial arrangements on behalf of the patent owner.</p>
-      <p style="font-size:.85rem;color:var(--text-light);">The patent is assigned to DDSE Consulting, LLC — Reel/Frame 070067/0444, recorded January 30, 2025.</p>
     </div>
   </div>
 </div>
@@ -461,38 +202,25 @@ footer strong{color:rgba(255,255,255,.75);}
 <!-- CONTACT -->
 <section class="section" id="contact">
 <div class="section-inner">
-  <div class="section-label" style="text-align:center;">Get in Touch</div>
-  <h2 class="section-title" style="text-align:center;">Begin a Licensing Conversation</h2>
+  <div class="section-label" style="text-align:center;">Contact</div>
+  <h2 class="section-title" style="text-align:center;">Begin a Discussion</h2>
+
   <div class="contact-box">
-    <h3>Ready to Discuss Licensing?</h3>
-    <p>Whether you have received a pre-suit notice, are evaluating your compliance obligations, or wish to proactively secure a license, we welcome your inquiry. All discussions are confidential and conducted under NDA.</p>
-    <a href="mailto:contact@ddseconsulting.com?subject=Patent%20Licensing%20Inquiry%20-%20US%2012%2C197%2C893%20B2" class="btn-primary" style="display:inline-block;margin-bottom:1rem;">Email Us to Inquire</a><br/>
-    <a href="mailto:contact@ddseconsulting.com?subject=Patent%20Licensing%20Inquiry%20-%20US%2012%2C197%2C893%20B2" class="contact-email-link">contact@ddseconsulting.com</a>
-    <p class="contact-note">All inquiries are treated with strict confidentiality under mutual NDA. Early adopters may qualify for up to 50% discount off standard FRAND rates.</p>
+    <h3>Contact DDSE Consulting</h3>
+    <p>We welcome confidential discussions regarding technical evaluation and licensing.</p>
+
+    <a href="mailto:contact@ddseconsulting.com" class="btn-primary">Email Us</a><br/>
+    <a href="mailto:contact@ddseconsulting.com" class="contact-email-link">contact@ddseconsulting.com</a>
+
+    <p class="contact-note">All discussions are confidential and without obligation.</p>
   </div>
 </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>DDSE Consulting, LLC</strong> &nbsp;·&nbsp; 4053 Nottingham Circle, Clarkston, MI 48346 &nbsp;·&nbsp; <a href="mailto:contact@ddseconsulting.com" style="color:rgba(255,255,255,.5);">contact@ddseconsulting.com</a></p>
-  <p style="margin-top:.5rem;">© 2025 DDSE Consulting, LLC. All rights reserved. &nbsp;·&nbsp; US Patent No. 12,197,893 B2 &nbsp;·&nbsp; Issued January 14, 2025</p>
-  <p style="margin-top:.5rem;">DDSE Consulting, LLC is the sole owner of US Patent 12,197,893 B2. All licensing is managed by DDSE Operation, LLC as exclusive licensing agent.</p>
+  <p><strong>DDSE Consulting, LLC</strong> · Clarkston, Michigan</p>
+  <p>US Patent No. 12,197,893 B2</p>
 </footer>
 
-<script>
-// FAQ accordion — already handled inline via classList.toggle
-// Smooth scroll offset compensation for sticky nav
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      const top = target.getBoundingClientRect().top + window.scrollY - 72;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  });
-});
-</script>
 </body>
-</html>
